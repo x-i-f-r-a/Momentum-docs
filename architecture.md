@@ -24,7 +24,7 @@ void main() async {
 
 
 ```
-Or Go's Fiber like
+Or 
 
 ```dart
 
@@ -46,7 +46,7 @@ void main() async {
 ```
 
 
-## Laravel like MVC Architecture
+## Laravel like Architecture
 
 
 For the web artisans , momentum support separating logic and view. 

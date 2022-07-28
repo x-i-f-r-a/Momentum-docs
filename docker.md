@@ -4,5 +4,5 @@ Create a production build which includes a `DockerFile` so that you can deploy a
 
 ```shell
 #  Create a production build
-moment build
+mcli build
 ```
