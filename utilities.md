@@ -34,16 +34,20 @@ http://ip:port/css/style.css and http://ip:port/js/index.js.
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.sendString('Momentum is up and running!');
-  });
+    app.GET('/', (Request req, Response res){
+        res.sendString('Momentum is up and running!');
+    });
 
+    app.runServer();
+  }
+}
 ```
 
 ## Send a Json Response
@@ -51,15 +55,20 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.sendJson({'blaa': 'bluu'});
-  });
+    app.GET('/', (Request req, Response res){
+        res.sendJson({'blaa': 'bluu'});
+    });
+
+    app.runServer();
+  }
+}
 
 ```
 
@@ -68,15 +77,22 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App{
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.renderHTML('index.html');
-  });
+    app.GET('/', (Request req, Response res){
+        res.renderHTML('index.html');
+    });
+
+    app.runServer();
+
+  }
+}
+
 
 ```
 
@@ -85,15 +101,22 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.Template('index.html', {'title' : 'My Momentum App'});
-  });
+    app.GET('/', (Request req, Response res){
+        res.Template('index.html', {'title' : 'My Momentum App'});
+    });
+
+    app.runServer();
+
+  }
+
+}
 
 ```
 
@@ -103,17 +126,22 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App{
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.setHeaders([{'Content-Type':'application/json'}]);
-      res.sendJson({'blaa': 'bluu'});
-  });
+    app.GET('/', (Request req, Response res){
+        res.setHeaders([{'Content-Type':'application/json'}]);
+        res.sendJson({'blaa': 'bluu'});
+    });
 
+    app.runServer();
+
+  }
+}
 ```
 
 ## Send flash Messages
@@ -121,15 +149,21 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-     res.flashMessage('success', 'Hey Momentum is up!!');
-  });
+    app.GET('/', (Request req, Response res){
+      res.flashMessage('success', 'Hey Momentum is up!!');
+    });
+
+    app.runServer();
+
+  }
+}
 
 ```
 
@@ -140,32 +174,43 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.setCookies('key', 'value');
-  });
+    app.GET('/', (Request req, Response res){
+        res.setCookies('key', 'value');
+    });
 
+    app.runServer();
+
+  }
+}
 ```
 ### Remove Cookies
 
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App{
+  void main() async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.removeCookies('key');
-  });
+    app.GET('/', (Request req, Response res){
+        res.removeCookies('key');
+    });
 
+    app.runServer();
+
+
+  }
+}
 ```
 
 
@@ -174,15 +219,20 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App{
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.clearCookies();
-  });
+    app.GET('/', (Request req, Response res){
+        res.clearCookies();
+    });
+
+    app.runServer();
+
+  }  
 
 ```
 
@@ -193,16 +243,21 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      req.storeSession('key', 'value');
-  });
+    app.GET('/', (Request req, Response res){
+        req.storeSession('key', 'value');
+    });
 
+    app.runServer();
+
+  }
+}
 ```
 
 ### Get Session value
@@ -210,16 +265,23 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      final sess = req.getSession(key);
-      print(sess);
-  });
+    app.GET('/', (Request req, Response res){
+        final sess = req.getSession(key);
+        print(sess);
+    });
+
+    app.runServer();
+
+
+  }
+}
 
 ```
 
@@ -228,15 +290,21 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App{
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      req.clearSession('key');
-  });
+    app.GET('/', (Request req, Response res){
+        req.clearSession('key');
+    });
+
+    app.runServer();
+
+  }
+}
 
 ```
 
@@ -246,17 +314,23 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 import 'dart:convert';
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App{
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      final data = await req.body();
-      print(jsonDecode(data)['<key>']);
-      // Will print a value for the supplied key
-  });
+    app.GET('/', (Request req, Response res){
+        final data = await req.body();
+        print(jsonDecode(data)['<key>']);
+        // Will print a value for the supplied key
+    });
+
+    app.runServer();
+
+  }
+}
 
 ```
 
@@ -265,17 +339,23 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App { 
+   void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res) async {
-      final data = await req.query();
-      print(data);
-      // Will print a json data
-  });
+    app.GET('/', (Request req, Response res) async {
+        final data = await req.query();
+        print(data);
+        // Will print a json data
+    });
+
+    app.runServer();
+
+  }
+}
 
 ```
 
@@ -284,15 +364,21 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App {
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      req.DownloadFile();
-  });
+    app.GET('/', (Request req, Response res){
+        req.DownloadFile();
+    });
+
+    app.runServer();
+
+  }
+}
 
 ```
 
@@ -301,14 +387,21 @@ void main() async {
 ```dart
 <!-- Express Js way -->
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
-void main() async {
-  final app = Momentum();
+class App{
+  void main({server}) async {
+    final app = Momentum();
 
 
-  app.GET('/', (Request req, Response res){
-      res.setCors(Methods: 'GET , POST', Origins: '*');
-  });
+    app.GET('/', (Request req, Response res){
+        res.setCors(Methods: 'GET , POST', Origins: '*');
+    });
+
+    app.runServer();
+    
+  }
+}
+
 
 ```

@@ -13,23 +13,25 @@ Momentum requires Dart `">=2.17.0 <3.0.0"`
 ```shell
 #  Install the moment cli from pub.dev
 
-dart pub global activate mcli
+dart pub global activate mctl
 
 ```
 
 ### Creating a New Project 
 
-Use the `mcli create <project name>` command to create a new project.
+Use the `mctl create <project name>` command to create a new project.
 
 ```shell
 #  Create a new project called "MyDreamProject"
-mcli create MyDreamProject
+mctl create MyDreamProject
 ```
 
 The directory structure is as follows:
 
 ```text
 MyDreamProject
+└── app
+    └── MyDreamProject.dart
 └── templates
     └── Home_view.dart
 └── Controllers
@@ -45,7 +47,7 @@ Next, open the newly directory of created project and start the dev server by:
 
 ```shell
 #  Start the development server
-mcli dev
+mctl dev
 ```
 
 

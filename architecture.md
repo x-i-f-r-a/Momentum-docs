@@ -10,38 +10,46 @@ For the developers from Javascript and for the developers who are developing sma
 
 ```dart
 
-import 'package:Momentum/momentum.dart';
-
-void main() async {
-  final app = Momentum();
+import 'package:momentum_web/momentum_web.dart';
 
 
-  app.GET('/', (Request req, Response res){
-      res.sendString('Momentum is up and running');
- });
+class App{
+  void main({server}) async {
+    final app = Momentum();
 
+
+    app.GET('/', (Request req, Response res){
+        res.sendString('Momentum is up and running');
+    });
+
+    app.runServer();
+
+  }
 }
-
 
 ```
 Or 
 
 ```dart
 
-import 'package:Momentum/momentum.dart';
-
-void main() async {
-  final app = Momentum();
+import 'package:momentum_web/momentum_web.dart';
 
 
-  app.GET('/', Home);
+class App{  
+  void main({server}) async {
+    final app = Momentum();
 
 
-  Future Home(Request req, Response res){
-      res.sendString('Momentum is up and running');
- };
+    app.GET('/', Home);
 
-}
+
+    Future Home(Request req, Response res){
+          res.sendString('Momentum is up and running');
+    };
+
+    app.runServer();
+
+  }}
 
 ```
 
@@ -49,7 +57,7 @@ void main() async {
 ## Laravel like Architecture
 
 
-For the web artisans , momentum support separating logic and view. 
+For the web wizards , momentum support separating logic and view. 
 The `Controllers` folder contains the sample program to write a separate class with functions and it can be called inside our main `main.dart` file.
 
 

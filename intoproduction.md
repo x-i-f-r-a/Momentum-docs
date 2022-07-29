@@ -2,12 +2,12 @@
 
 ## Run a Cluster Server
 
-Cluster a single server as many using isolates using command `mcli -i <number of isolates>`:
+Cluster a single server as many using isolates using command `mctl -i <number of isolates>`:
 
 ```shell
-#  Create a production build
-mcli -i 2 
+#  Run as multiple clusters
+mctl -i 2 
 or 
-mcli -isolate 2
+mctl -isolate 2 [-p <port>] [-a <address>]
 ```
 

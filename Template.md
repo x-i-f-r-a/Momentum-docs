@@ -10,29 +10,30 @@ For passing data to webpage you can use,
 
 //main.dart
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 
 
-void main() async {
+class App {
+  void main({server}) async {
 
-              
-  final app = Momentum();
-
-
-  app.GET('/', (Request req,Response res){
+                
+    final app = Momentum();
 
 
-    res.Template('index.html', {'title':'My Moment'});
+    app.GET('/', (Request req,Response res){
+
+
+      res.Template('index.html', {'title':'My Moment'});
+      
+
+    });
+
     
 
-  });
+    await app.runServer(host: '127.0.0.1', port: 8000);
 
-  
-
-  await app.runServer(host: '127.0.0.1', port: 8000);
-
+  }
 }
-
 
 ```
 
@@ -65,31 +66,31 @@ void main() async {
 
 //main.dart
 
-import 'package:Momentum/momentum.dart';
+import 'package:momentum_web/momentum_web.dart';
 import 'index.html.dart';
 
+class App {
+  void main({server}) async {
 
-void main() async {
-
-              
-  final app = Momentum();
-
-
-  app.GET('/', (Request req,Response res){
+                
+    final app = Momentum();
 
 
-    res.HTML(index({'list': ['user1', 'user2']}));
+    app.GET('/', (Request req,Response res){
+
+
+      res.HTML(index({'list': ['user1', 'user2']}));
+      
+
+    });
+
     
 
-  });
+    await app.runServer(host: '127.0.0.1', port: 8000);
 
-  
-
-  await app.runServer(host: '127.0.0.1', port: 8000);
+  }
 
 }
-
-
 ```
 
 
