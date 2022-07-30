@@ -411,7 +411,6 @@ class App{
 
 
 ```dart
-<!-- Express Js way -->
 
 import 'package:momentum_web/momentum_web.dart';
 
@@ -421,7 +420,7 @@ class App{
 
 
     app.GET('/', (Request req, Response res){
-      // Pass the index of route (if route is '/:value' then give index as 0 or if it '/api/"value' then give 1 as index and so on.)
+      // Pass the index of route (if route is '/:value' then give index as 0 or if it '/api/value' then give 1 as index and so on.)
         final data = req.getPathData(1);
         print(data);
     });
