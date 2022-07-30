@@ -405,3 +405,31 @@ class App{
 
 
 ```
+
+
+## Get value from route
+
+
+```dart
+<!-- Express Js way -->
+
+import 'package:momentum_web/momentum_web.dart';
+
+class App{
+  void main({server}) async {
+    final app = Momentum();
+
+
+    app.GET('/', (Request req, Response res){
+      // Pass the index of route (if route is '/:value' then give index as 0 or if it '/api/"value' then give 1 as index and so on.)
+        final data = req.getPathData(1);
+        print(data);
+    });
+
+    app.runServer();
+    
+  }
+}
+
+
+```
